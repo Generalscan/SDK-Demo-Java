@@ -34,9 +34,7 @@ dependencies
 <uses-permission android:name="android.permission.VIBRATE" />
 
 <!-- Permissions for USB Host (Scan Buddy) -->
-<uses-feature
-    android:name="android.hardware.usb.host"
-    android:required="true" />
+<uses-feature android:name="android.hardware.usb.host" android:required="true" />
 <!-- Show Alert Dialog in Service -->
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -46,8 +44,7 @@ dependencies
     android:enabled="true"
     android:exported="true" />
 
-<service
-android:name="com.generalscan.scannersdk.core.session.usbhost.service.UsbHostService"
+<service android:name="com.generalscan.scannersdk.core.session.usbhost.service.UsbHostService"
     android:enabled="true"
     android:exported="true" />
 
