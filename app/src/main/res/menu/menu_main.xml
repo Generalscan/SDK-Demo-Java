@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_id_connect_bluetooth"
+        android:title="@string/B_Connect"
+        android:icon="@drawable/ic_bluetooth_pairing"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_id_connect_usb"
+        android:title="@string/usb_host"
+        android:icon="@drawable/ic_usb_host"
+        app:showAsAction="always" />
+</menu>

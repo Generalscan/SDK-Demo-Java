@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+
+
+    <!-- Flat Button -->
+    <style name="flat_button_base" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@drawable/button_text_selector</item>
+    </style>
+    <style name="flat_button" parent="flat_button_base">
+        <item name="android:background">@drawable/bg_flat_button</item>
+    </style>
+    <style name="flat_button_danger" parent="flat_button_base">
+        <item name="android:background">@drawable/bg_flat_button_danger</item>
+    </style>
+    <style name="flat_button_info" parent="flat_button_base">
+        <item name="android:background">@drawable/bg_flat_button_info</item>
+    </style>
+    <style name="flat_button_success" parent="flat_button_base">
+        <item name="android:background">@drawable/bg_flat_button_success</item>
+    </style>
+    <style name="flat_button_warning" parent="flat_button_base">
+        <item name="android:background">@drawable/bg_flat_button_warning</item>
+    </style>
+</resources>

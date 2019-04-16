@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SDK 应用演示</string>
+
+    <string name="dialog_info_title">信息</string>
+    <string name="dialog_confirm_title">确认</string>
+    <string name="dialog_warning_title">警告</string>
+    <string name="dialog_update_title">升级</string>
+    <string name="dialog_update_msg">有新版本可以升级.</string>
+    <string name="dialog_update_msg2">现在升级吗?</string>
+    <string name="dialog_update_btnupdate">升级</string>
+    <string name="dialog_update_btnnext">稍后升级</string>
+    <string name="dialog_downloading_msg">发现新版本. 正在下载....</string>
+    <string name="dialog_alert_title">警告</string>
+    <string name="dialog_downfailed_btndown">重新下载</string>
+    <string name="dialog_downfailed_btnnext">稍后</string>
+    <string name="dialog_error_title">错误</string>
+    <string name="dialog_downfailed_msg">下载失败，要重试吗？</string>
+    <string name="version">Version</string>
+    <string name="firmware_upgrade">更新固件</string>
+    <string name="check_update">检查更新</string>
+    <string name="checking_update">正在检查更新</string>
+
+
+    <string name="menu_connect_to_scanner">连接扫描器</string>
+    <string name="bluetooth_scanner">蓝牙扫描器</string>
+    <string name="step_1">步骤一:</string>
+    <string name="step_2">步骤二:</string>
+    <string name="next_step">下一步</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="B_GoScanQR">二维码</string>
+    <string name="or">或者</string>
+    <string name="done">完成</string>
+    <string name="show_setting_after_done">完成后显示设置</string>
+    <string name="scanner_connect_success">连接设备成功</string>
+    <string name="please_connect_scanner">请先连接扫描器</string>
+    <string name="usb_host_trigger_mode">触发方式</string>
+    <string name="gs_gravity">重力感应</string>
+    <string name="gs_trigger_button">虚拟按钮</string>
+    <string name="gs_trigger_button_setting">虚拟按钮设置</string>
+    <string name="gs_done">完成</string>
+    <string name="please_set_keyboard_as_default">连接扫描器之前请先把Generalscan输入法设置为默认输入法</string>
+    <string name="connect_to_bt_scanner_fail">连接蓝牙设备失败!</string>
+    <string name="connect_to_device_timeout">连接到设备超时,请确保设备已经打开并处于可连接状态!</string>
+    <string name="menu_stop_all_services">停止所有扫描器服务</string>
+    <string name="U_ScannerConnect">USB扫描器已经连接</string>
+    <string name="ble_need">为了能够使用蓝牙设备，请允许此应用使用你的位置信息。</string>
+    <string name="camera_access_need">为了能够使用蓝牙设备，请允许此应用使用你的摄像头。</string>
+    <string name="bluetooth_devices">蓝牙设备</string>
+    <string name="start_scan">扫描</string>
+    <string name="stop_scan">停止</string>
+    <string name="data_receiving">数据接收</string>
+
+
+    <string name="gs_button_save_settings">保存设置</string>
+    <string name="gs_scanner_output">扫描器输出</string>
+    <string name="gs_output_encoding">输出编码</string>
+    <!-- Encoding -->
+    <string name="gs_encoding_auto">自动识别</string>
+    <string name="gs_encoding_gb2312">简体中文(GB2312)</string>
+    <string name="gs_encoding_utf_8">UTF8</string>
+    <string name="gs_encoding_unicode">Unicode</string>
+    <string name="gs_encoding_gbk">简体中文(GBK)</string>
+    <string name="gs_encoding_big5">繁体体中文(BIG5)</string>
+    <string name="gs_encoding_sjis">日文(SJIS)</string>
+    <string name="gs_encoding_euc_jp">日文(EUC_JP)</string>
+    <string name="gs_encoding_euc_kr">韩文(EUC_KR)</string>
+    <string name="gs_bluetooth_auto_charging">蓝牙智能充电</string>
+    <string name="gs_bluetooth_auto_charging_start_charging">低于此值时自动充电</string>
+    <string name="gs_bluetooth_auto_charging_stop_charging">高于此值时停止充电</string>
+    <string name="gs_enable_bluetooth_auto_charging">允许蓝牙智能充电</string>
+
+    <string name="action_grant_permission">授予权限</string>
+    <string name="permission_dialog_title">需要权限</string>
+    <string name="permission_dialog_message">这个应用需要权限去读写SDCard上的内容以加载及连接蓝牙.\n\n请点击在稍后出现的权限对话框上点击\"允许\".</string>
+    <string name="permissions_available">权限已经获取</string>
+    <string name="permissions_not_granted">权限没有获取, 程序即将退出</string>
+
+    <string name="gs_scan_output_suspended">扫描输出已经暂停</string>
+    <string name="gs_scan_output_recovered">扫描输出已经恢复</string>
+    <string name="gs_show_special_symbol">显示特殊字符</string>
+    <string name="gs_bluetooth_battery_monitor_status">电量监测器状态:</string>
+    <string name="gs_status_on">开启</string>
+    <string name="gs_status_off">关闭</string>
+
+
+    <!-- 主界面 -->
+    <string name="M_Power">剩余电量：</string>
+    <string name="M_Power_Disabled">无法获取</string>
+    <!-- 蓝牙 -->
+    <string name="B_Open">开启蓝牙并配对</string>
+
+    <string name="B_TurnOnBluetooth">开启蓝牙</string>
+    <string name="B_GoTurnOn">去开启</string>
+    <string name="B_HadTurnOn">已开启</string>
+
+    <string name="B_Select">选择要连接的设备</string>
+    <string name="B_GoSelect">去选择</string>
+    <string name="B_HadSelect">已选择</string>
+
+    <string name="B_Connect">连接蓝牙</string>
+    <string name="B_Close">关闭连接</string>
+    <string name="B_Clear">清空</string>
+    <string name="B_SendContent">输入发送的数据</string>
+    <string name="B_Send">发送</string>
+    <string name="B_CommandList">命令列表</string>
+    <!-- USB -->
+    <string name="U_Clear">清空</string>
+    <string name="U_SendContent">输入发送的数据</string>
+    <string name="U_Send">发送自定义命令</string>
+    <string name="U_SendList">配置命令</string>
+    <string name="U_ChargeState">设置充电类型</string>
+    <string name="U_ChargeMax">正常模式电量 (默认:35)</string>
+    <string name="U_ChargeMin">快速充电模式电量 (默认:30)</string>
+    <string name="U_ChargeWarn">设备提醒充电 (默认:5)</string>
+    <string name="U_ScanContent">条码扫描内容：</string>
+    <string name="U_StartService">开启服务</string>
+    <string name="U_stopService">停止服务</string>
+    <string name="U_newActivity">更多设置</string>
+    <string name="success">成功</string>
+    <string name="device_response_data">设备响应</string>
+    <string name="transction_log">传输日志</string>
+    <string name="stop_upgrade">停止更新</string>
+    <string name="error_log">错误日志</string>
+    <string name="location">位置</string>
+    <string name="folder_name">文件夹名称</string>
+    <string name="cant_read_folder">无法读取文件夹</string>
+    <string name="select_firmware_file">选择固件文件</string>
+    <string name="no_data">没有数据</string>
+    <string name="button_new">新建</string>
+    <string name="select">选择</string>
+    <string name="file_name">文件名</string>
+    <string name="button_create">创建</string>
+    <string name="msg_confirm_for_firware_file_upgrade">你确定要用这个文件来升级固件吗？</string>
+    <string name="upgrading_firmware">正在更新固件</string>
+    <string name="upgrade_completed">更新完成</string>
+    <string name="firmware_upgrade_success_info">扫描器的固件已经更新完毕，为了让新固件生效，请关闭扫描器再打开</string>
+    <string name="invalid_response">无效的响应:</string>
+    <string name="firmware_upgrade_failed_info">固件更新失败</string>
+    <string name="usb_host">USB主服务</string>
+    <string name="usb_host_service_not_start">USB主服务没有开启</string>
+    <string name="settings">设置</string>
+
+    <!-- 列表 -->
+    <string name="gs_command_type_function">扫描器控制功能</string>
+    <string name="gs_command_type_config">配置扫描器</string>
+    <string name="gs_command_type_read">读取扫描器信息</string>
+    <string name="raw_data">原始数据</string>
+    <string name="clear_output">清除输出</string>
+    <string name="gs_show_raw_data">显示原始数据</string>
+    <string name="command_and_settings">命令与配置</string>
+    <string name="data_received">接收到的数据</string>
+    <string name="easy_connect">容易连</string>
+    <string name="preference_file_key">Android_GS_SDK_DEMO</string>
+    <string name="title_device_connect_confirm">设备连接确认</string>
+    <string name="msg_device_connect_info">设备%1$s[%2$s]正在接入, 是否允许?</string>
+    <string name="title_capture_bluetooth_address">获取本地蓝牙地址</string>
+    <string name="msg_capture_bluetooth_address_from_screen">我们不能自动的获取本地蓝牙地址，请在下一个屏幕找到蓝牙地址，然后回到这里手动输入地址。</string>
+    <string name="clear_saved_address">清除已保存地址</string>
+    <string name="local_bluetooth_address_scan">本地蓝牙地址:%1$s, 请使用条码扫描器扫描屏幕上的条码进行连接!</string>
+    <string name="scan_buddy">Scan Budy</string>
+</resources>

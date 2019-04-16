@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/fdLinearLayoutList"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblCurrentPath"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="location"
+            android:textColor="@color/text_80"
+            android:textSize="18sp" />
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="#dbdada"
+            android:dividerHeight="1dp" />
+
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/no_data" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fdLinearLayoutList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/fdLinearLayoutSelect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/fdButtonNew"
+                    style="@style/flat_button_info"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight=".3"
+                    android:background="@drawable/bg_flat_button_round"
+                    android:padding="10dp"
+                    android:text="@string/button_new" />
+
+                <Button
+                    android:id="@+id/fdButtonSelect"
+                    style="@style/flat_button_info"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight=".7"
+                    android:background="@drawable/bg_flat_button_round"
+                    android:padding="10dp"
+                    android:text="@string/select" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fdLinearLayoutCreate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/lblNewFileOrFolderName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/file_name" />
+
+            <EditText
+                android:id="@+id/txtNewFileOrFolderName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/fdButtonCancel"
+                    style="@style/flat_button_info"
+                    android:background="@drawable/bg_flat_button_round"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight=".3"
+
+                    android:padding="10dp"
+                    android:text="@android:string/cancel" />
+
+                <Button
+                    android:id="@+id/fdButtonCreate"
+                    style="@style/flat_button_info"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight=".7"
+                    android:background="@drawable/bg_flat_button_round"
+                    android:padding="10dp"
+                    android:text="@string/button_create" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

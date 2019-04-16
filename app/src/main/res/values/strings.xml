@@ -1,0 +1,160 @@
+<resources>
+    <string name="app_name">SDK Demo App</string>
+
+    <string name="dialog_info_title">Information</string>
+    <string name="dialog_confirm_title">Confirm</string>
+    <string name="dialog_warning_title">Warning</string>
+    <string name="dialog_update_title">Update</string>
+    <string name="dialog_update_msg">A new version is available.</string>
+    <string name="dialog_update_msg2">Update Now?</string>
+    <string name="dialog_update_btnupdate">Update</string>
+    <string name="dialog_update_btnnext">Later</string>
+    <string name="dialog_downloading_msg">A new version is available. Downloading....</string>
+    <string name="dialog_alert_title">Warning</string>
+    <string name="dialog_downfailed_btndown">Download again</string>
+    <string name="dialog_downfailed_btnnext">Later</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_downfailed_msg">Download failed，try again？</string>
+
+    <string name="msg_install_new_version">A new version of this firmware is downloading and refresh once download is completed.</string>
+
+    <string name="version">Version</string>
+    <string name="firmware_upgrade">Update Firmware</string>
+    <string name="check_update">Check Update</string>
+    <string name="checking_update">Checking for update</string>
+
+    <string name="menu_connect_to_scanner">Connect Scanner</string>
+    <string name="bluetooth_scanner">Bluetooth Scanner</string>
+    <string name="step_1">Step One:</string>
+    <string name="step_2">Step Two:</string>
+    <string name="next_step">Next Step</string>
+    <string name="scan_text">Put QR Code inside the frame</string>
+    <string name="B_GoScanQR">QR Code</string>
+    <string name="or">Or</string>
+    <string name="done">Done</string>
+    <string name="show_setting_after_done">Show setting page after done</string>
+    <string name="scanner_connect_success">Connected to device successfully!</string>
+    <string name="please_connect_scanner">Please connect to a scanner first</string>
+    <string name="usb_host_trigger_mode">Trigger Method</string>
+    <string name="gs_gravity">Gravity</string>
+    <string name="gs_trigger_button">Trigger Button</string>
+    <string name="gs_trigger_button_setting">Trigger Button Settings</string>
+    <string name="gs_done">Done</string>
+    <string name="please_set_keyboard_as_default">Please set Generalscan Keyboard Pro as default keybarod before connecting to a scanner</string>
+    <string name="connect_to_bt_scanner_fail">Connect to bluetooth device failed!</string>
+    <string name="connect_to_device_timeout">Conenct to device timeout, please make sure dieve has been turned on and stay connectable!</string>
+    <string name="menu_stop_all_services">Stop All Scanner Services</string>
+    <string name="U_ScannerConnect">Usb Scanner has been connected.</string>
+    <string name="ble_need">In order to use bluetooth device, please allow this app to use your location info.</string>
+    <string name="camera_access_need">In order to use bluetooth device, please allow this app to access your camera.</string>
+    <string name="bluetooth_devices">Bluetooth Devices</string>
+    <string name="start_scan">Scan</string>
+    <string name="stop_scan">Stop</string>
+    <string name="data_receiving">Data Receiving</string>
+
+    <string name="gs_button_save_settings">Save Settings</string>
+    <string name="gs_scanner_output">Scanner Output</string>
+    <!-- Encoding -->
+    <string name="gs_encoding_auto">Auto Detect</string>
+    <string name="gs_encoding_gb2312">Simplified Chinese(GB2312)</string>
+    <string name="gs_encoding_utf_8">UTF8</string>
+    <string name="gs_encoding_unicode">Unicode</string>
+    <string name="gs_encoding_gbk">Simplified Chinese(GBK)</string>
+    <string name="gs_encoding_big5">Traditional Chinese(BIG5)</string>
+    <string name="gs_encoding_sjis">Japanese(SJIS)</string>
+    <string name="gs_encoding_euc_jp">Japanese(EUC_JP)</string>
+    <string name="gs_encoding_euc_kr">Korean(EUC_KR)</string>
+    <string name="gs_output_encoding">Output Encoding</string>
+    <string name="gs_bluetooth_auto_charging">Bluetooth Auto Charging</string>
+    <string name="gs_bluetooth_auto_charging_start_charging">Start charging when below</string>
+    <string name="gs_bluetooth_auto_charging_stop_charging">Stop charging at</string>
+    <string name="gs_enable_bluetooth_auto_charging">Enable bluetooth auto chargig</string>
+
+    <string name="action_grant_permission">Grant permission</string>
+    <string name="permission_dialog_title">Permission needed</string>
+    <string name="permission_dialog_message">This app requires permission to access SDCard and connect bluetooth scanner before it can start.\n\nPlease press \"Allow\" on the permission window appears.</string>
+    <string name="permissions_available">Permissions have been granted</string>
+    <string name="permissions_not_granted">Permissions were NOT granted, this app will be closed.</string>
+
+    <string name="gs_scan_output_suspended">Scanning output has been suspended.</string>
+    <string name="gs_scan_output_recovered">Scanning output has been recovered.</string>
+    <string name="gs_show_special_symbol">Show Special Characters</string>
+    <string name="gs_bluetooth_battery_monitor_status">Battery Monitor Status:</string>
+    <string name="gs_status_on">On</string>
+    <string name="gs_status_off">Off</string>
+
+    <!-- 主界面 -->
+    <string name="M_Power">Android USB Accessory Battery Volume(%):</string>
+    <string name="M_Power_Disabled">Disabled</string>
+    <!-- 蓝牙 -->
+    <string name="B_Open">Open the Bluetooth and pairing</string>
+    <string name="B_TurnOnBluetooth">Turn on Bluetooth</string>
+    <string name="B_GoTurnOn">Go Turn On</string>
+    <string name="B_HadTurnOn">Turned On</string>
+
+    <string name="B_Select">Select device</string>
+    <string name="B_GoSelect">Go Select</string>
+    <string name="B_HadSelect">Selected</string>
+
+    <string name="B_Connect">Connect</string>
+    <string name="B_Close">Disconnect</string>
+    <string name="B_Clear">Clear</string>
+    <string name="B_SendContent">Send Command</string>
+    <string name="B_Send">Send</string>
+    <string name="B_CommandList">Command List</string>
+    <string name="U_ScanContent">Scan Information：</string>
+    <!-- USB -->
+    <string name="U_Clear">Clear</string>
+    <string name="U_SendContent">Send Command</string>
+    <string name="U_Send">Send</string>
+    <string name="U_SendList">Setting</string>
+    <string name="U_ChargeState">Set Charging Mode Threshold</string>
+    <string name="U_ChargeMax">Max Value( Default:35)</string>
+    <string name="U_ChargeMin">Min Value (Default:30)</string>
+    <string name="U_ChargeWarn">Sled Battery Warning( Default:5)</string>
+    <string name="U_StartService">Start service</string>
+    <string name="U_stopService">Stop service</string>
+    <string name="U_newActivity">More</string>
+    <string name="success">Success</string>
+    <string name="device_response_data">Device Data</string>
+    <string name="transction_log">Transaction Log</string>
+    <string name="stop_upgrade">Stop Upgrade</string>
+    <string name="error_log">Error Log</string>
+    <string name="location">Location</string>
+    <string name="folder_name">Folder Name</string>
+    <string name="cant_read_folder">Cannot read folder</string>
+    <string name="select_firmware_file">Select Firmware File</string>
+    <string name="no_data">No Data</string>
+    <string name="button_new">New</string>
+    <string name="select">Select</string>
+    <string name="file_name">File Name</string>
+    <string name="button_create">Create</string>
+    <string name="msg_confirm_for_firware_file_upgrade">Are you sure to upgrade the firmware by using this file?</string>
+    <string name="upgrading_firmware">Upgrading Firmware</string>
+    <string name="upgrade_completed">Upgrade Completed</string>
+    <string name="firmware_upgrade_success_info">The scanner firmware has been upgraded, please turn off the scanner and then turn it on again to apply the new firmware.</string>
+    <string name="invalid_response">Invalid Response:</string>
+    <string name="firmware_upgrade_failed_info">Firmware upgrade failed</string>
+    <string name="usb_host">USB Host</string>
+    <string name="usb_host_service_not_start">USB Host service not started!</string>
+    <string name="settings">Settings</string>
+
+    <!-- 列表 -->
+    <string name="gs_command_type_function">Scanner Function</string>
+    <string name="gs_command_type_config">Config Scanner</string>
+    <string name="gs_command_type_read">Read Scanner Information</string>
+    <string name="raw_data">Raw Data</string>
+    <string name="clear_output">Clear</string>
+    <string name="gs_show_raw_data">Show Raw Data</string>
+    <string name="command_and_settings"><![CDATA[Command & Settings]]></string>
+    <string name="data_received">Data Received</string>
+    <string name="easy_connect">Easy Connect</string>
+    <string name="preference_file_key">Android_GS_SDK_DEMO</string>
+    <string name="title_device_connect_confirm">Device Connect Confirmation</string>
+    <string name="msg_device_connect_info">Device %1$s[%2$s] is connecting in, approved?</string>
+    <string name="title_capture_bluetooth_address">Capture Local Bluetooth Address</string>
+    <string name="msg_capture_bluetooth_address_from_screen">We are unable to capture the local Bluetooth address automatically, please find the Bluetooth address on the next screen, then return back to key in the address manually.</string>
+    <string name="clear_saved_address">Clear Saved Address</string>
+    <string name="local_bluetooth_address_scan">Local Bluetooth Address:%1$s, please use the barcode scanner to scan the barcode on the screen to connect!</string>
+    <string name="scan_buddy">Scan Budy</string>
+</resources>

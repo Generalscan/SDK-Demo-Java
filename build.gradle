@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.supportLibVersion = '26.1.0'
+
+    ext.sdkTargetVersion = 26
+    ext.sdkCompileVersion = 26
+    ext.sdkMinimumVersion = 14
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+
+}
+
+allprojects {
+    buildDir = "c:\\temp\\android_bulid\\SDK-DEMO\\${rootProject.name}\\${project.name}"
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

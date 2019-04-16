@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--Standard Color-->
+    <color name="white">#fff</color>
+    <color name="white_smoke">#fff5f5f5</color>
+    <color name="gray30">#ffe1e1e1</color>
+    <color name="gray50">#ff7f7f7f</color>
+    <color name="gray60">#ff595959</color>
+
+    <!--适配Materail Design后添加的颜色-->
+    <color name="text_100">#ff000000</color>
+    <color name="text_87">#dd000000</color>
+    <color name="text_80">#cc000000</color>
+    <color name="text_60">#99000000</color>
+    <color name="text_54">#69000000</color>
+
+    <color name="text_100_inverse">#ffffffff</color>
+    <color name="text_87_inverse">#ddffffff</color>
+    <color name="text_80_inverse">#ccffffff</color>
+    <color name="text_60_inverse">#99ffffff</color>
+    <color name="text_54_inverse">#89ffffff</color>
+</resources>
