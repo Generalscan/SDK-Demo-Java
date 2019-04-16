@@ -150,11 +150,5 @@
     <string name="data_received">Data Received</string>
     <string name="easy_connect">Easy Connect</string>
     <string name="preference_file_key">Android_GS_SDK_DEMO</string>
-    <string name="title_device_connect_confirm">Device Connect Confirmation</string>
-    <string name="msg_device_connect_info">Device %1$s[%2$s] is connecting in, approved?</string>
-    <string name="title_capture_bluetooth_address">Capture Local Bluetooth Address</string>
-    <string name="msg_capture_bluetooth_address_from_screen">We are unable to capture the local Bluetooth address automatically, please find the Bluetooth address on the next screen, then return back to key in the address manually.</string>
-    <string name="clear_saved_address">Clear Saved Address</string>
-    <string name="local_bluetooth_address_scan">Local Bluetooth Address:%1$s, please use the barcode scanner to scan the barcode on the screen to connect!</string>
     <string name="scan_buddy">Scan Budy</string>
 </resources>
