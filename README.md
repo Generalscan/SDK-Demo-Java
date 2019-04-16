@@ -16,7 +16,7 @@ allprojects {
 		} 
 }
 
-3)Open app level build.grdle file and add .aar file and kotlin runtime
+3) Open app level build.grdle file and add .aar file and kotlin runtime
 ```groovy
 dependencies 
 { 
