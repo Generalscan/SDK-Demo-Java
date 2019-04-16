@@ -15,6 +15,7 @@ allprojects {
 			flatDir { dirs 'libs' }  // add flatDir setting
 		} 
 }
+```groovy
 
 3) Open app level build.grdle file and add .aar file and kotlin runtime
 ```groovy
@@ -23,6 +24,7 @@ dependencies
 	implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.10' 
 	implementation(name:'generalscan-sdk-1.0', ext:'aar') 
 }
+```groovy
 
 4) Add the follow permissions into manifest.xml
 ```xml
@@ -37,6 +39,7 @@ dependencies
 <uses-feature android:name="android.hardware.usb.host" android:required="true" />
 <!-- Show Alert Dialog in Service -->
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+```xml
 
 5) Add the follow service declarations into manifest.xml
 ```xml
@@ -51,3 +54,4 @@ dependencies
 <service android:name="com.generalscan.scannersdk.core.session.usbhost.service.FloatingScanButtonService"
     android:enabled="true"
     android:exported="true" />
+```xml
