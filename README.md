@@ -17,6 +17,7 @@ allprojects {
 }
 ```
 
+
 3) Open app level build.grdle file and add .aar file and kotlin runtime
 ```groovy
 dependencies 
@@ -25,6 +26,7 @@ dependencies
 	implementation(name:'generalscan-sdk-1.0', ext:'aar') 
 }
 ```
+
 
 4) Add the follow permissions into manifest.xml
 ```xml
@@ -40,6 +42,7 @@ dependencies
 <!-- Show Alert Dialog in Service -->
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 ```
+
 
 5) Add the follow service declarations into manifest.xml
 ```xml
