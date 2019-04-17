@@ -9,7 +9,7 @@ Download from here : [SDK aar](https://github.com/Generalscan/SDK-Demo-Java/raw/
 
 ## Import SDK into android studio project
 1) Copy the SDK aar file to app/libs
-2) Add the flatDir setting Gradlee configuration to your Android project. In your root `build.gradle` file:
+2) Add the flatDir setting Gradle configuration to your Android project. In your root `build.gradle` file:
 ```groovy
 allprojects { 
 	repositories 
@@ -83,8 +83,8 @@ mBluetoothConnectSession.setSessionListener(new SessionListener()
 	@Override
 	public void onSessionStartTimeOut(IConnectSession iConnectSession) {
 		//TODO:show error message
-		}
 	}
+}
 );
 
 mBluetoothConnectSession.startSession();
