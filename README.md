@@ -172,7 +172,7 @@ mBluetoothConnectSession.setBluetoothDeviceToConnect(device);
 mBluetoothConnectSession.connect();
 ```
 
-6) 2.6	Stop Bluetooth session after activity is destroy
+6) Stop Bluetooth session after activity is destroy
 ```java
 //Send current bluetooth session
 mBluetoothConnectSession.endSession();
