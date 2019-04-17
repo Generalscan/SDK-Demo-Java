@@ -3,6 +3,9 @@
 This is a demo project for Generalscan scanner SDK
 
 
+## Download SDK aar
+
+Download from here : [SDK aar](./app/libs/generalscan-sdk-1.0.6.aar)
 
 ## Import SDK into android studio project
 1) Copy the SDK aar file (let say generalscan-sdk-1.0.aar) to app/libs
