@@ -70,21 +70,22 @@ dependencies
 BluetoothConnectSession mBluetoothConnectSession = new BluetoothConnectSession(this);
 //Setup session listener	
 //设置 Session 监听
-mBluetoothConnectSession.setSessionListener(new SessionListener()	
-{
-	//When session is ready
-	@Override
-	public void onSessionReady(IConnectSession iConnectSession) {
+mBluetoothConnectSession.setSessionListener(
+	new SessionListener()	
+	{
+		//When session is ready
+		@Override
+		public void onSessionReady(IConnectSession iConnectSession) {
 
-		//TODO:to connect the device here or later
-	}
+			//TODO:to connect the device here or later
+		}
 
-	//When session service initialization timeout
-	@Override
-	public void onSessionStartTimeOut(IConnectSession iConnectSession) {
-		//TODO:show error message
+		//When session service initialization timeout
+		@Override
+		public void onSessionStartTimeOut(IConnectSession iConnectSession) {
+			//TODO:show error message
+		}
 	}
-}
 );
 
 mBluetoothConnectSession.startSession();
