@@ -126,7 +126,7 @@ public class BluetoothMainActivity extends AppCompatActivity {
         mBluetoothConnectSession = new BluetoothConnectSession(this);
         mBluetoothConnectSession.setSessionListener(new SessionListener() {
             @Override
-            public void onSessionReady(@NotNull IConnectSession iConnectSession) {
+            public void onSessionReady(IConnectSession iConnectSession) {
                 mBluetoothConnectSession.setConnectListener(new CommunicateListener() {
                     //蓝牙设备断开
                     //Bluetooth device disconnected
