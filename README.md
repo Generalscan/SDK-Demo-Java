@@ -8,7 +8,7 @@ This is a demo project for Generalscan scanner SDK
 Download from here : [SDK aar](https://github.com/Generalscan/SDK-Demo-Java/raw/master/download/sdk-aar.zip)
 
 ## Import SDK into android studio project
-1) Copy the SDK aar file (let say generalscan-sdk-1.0.aar) to app/libs
+1) Copy the SDK aar file to app/libs
 2) Add the flatDir setting Gradlee configuration to your Android project. In your root `build.gradle` file:
 ```groovy
 allprojects { 
