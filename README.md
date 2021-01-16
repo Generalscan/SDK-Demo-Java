@@ -209,12 +209,14 @@ mBluetoothConnectSession.endSession();
 
  </activity>
 ```
-3) Start Bluetooth session after activity created
+3) Start USB session after activity created
 ```java
+//Manual triggering mode	
+//手动触发模式
 BluetoothConnectSession mBluetoothConnectSession = new BluetoothConnectSession(this);
 //Setup session listener	
 //设置 Session 监听
- UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
+UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
         mConnectionSession = new UsbHostConnectSession(this, false);
         mConnectionSession.setSessionListener(new SessionListener() {
             @Override
