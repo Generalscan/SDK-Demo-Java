@@ -36,95 +36,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
         try {
             setContentView(R.layout.activity_scan_buddy);
             bindViews();
-            UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
-            mConnectionSession = new UsbHostConnectSession(this, false);
-            mConnectionSession.setSessionListener(new SessionListener() {
-                @Override
-                public void onSessionReady(@NotNull IConnectSession iConnectSession) {
-                    showMessage("USB Session started");
-                    try
-                    {
-                        mConnectionSession.connect();
-                    }
-                    catch (Exception e)
-                    {
-                        e.printStackTrace();
-                        showMessage(e.getMessage());
-                        return;
-                    }
-
-                    mConnectionSession.setConnectListener(new CommunicateListener() {
-                        //设备断开
-                        //Bluetooth device disconnected
-                        @Override
-                        public void onDisconnected() {
-                            showMessage("Device has been disconnected");
-                        }
-
-                        //设备连接失败
-                        //Bluetooth device connect failed
-                        @Override
-                        public void onConnectFailure(String errorMessage) {
-                            showMessage(errorMessage);
-                        }
-
-                        //设备连接成功
-                        //Bluetooth device connect success
-                        @Override
-                        public void onConnected() {
-                            showMessage(R.string.scanner_connect_success);
-                        }
-
-                        //接收到扫描器数据
-                        //Scanner data received
-                        @Override
-                        public void onDataReceived(String data) {
-                            mTvData.append(data);
-                        }
-
-                        //命令返回数据
-                        //Bluetooth command callback
-                        @Override
-                        public void onCommandCallback(String name, String data) {
-
-                        }
-
-                        //电池数据接收
-                        //Battery data receive
-                        @Override
-                        public void onBatteryDataReceived(String voltage, String percentage) {
-
-                        }
-
-                        //扫描器命令超时
-                        //Scanner command timeout
-                        @Override
-                        public void onCommandNoResponse(String errorMessage) {
-
-                        }
-
-                        //数据接收错误
-                        //Data receive error
-                        @Override
-                        public void onRawDataReceiveError(String errorMessage, String source) {
-
-                        }
-
-                        //原始数据接收
-                        //Raw data receive
-                        @Override
-                        public void onRawDataReceived(byte data) {
-
-                        }
-                    });
-                }
-
-                @Override
-                public void onSessionStartTimeOut(@NotNull IConnectSession iConnectSession) {
-                    showMessage("USB Session start time out!");
-                }
-            });
-            saveAndRestartService();
+            initScanBudyService();
         }
         catch (Exception ex)
         {
@@ -132,6 +44,8 @@ public class ScanBuddyActivity extends AppCompatActivity {
             ex.printStackTrace();
         }
     }
+
+
 
     @Override
     protected void onDestroy() {
@@ -178,13 +92,95 @@ public class ScanBuddyActivity extends AppCompatActivity {
 
 
     }
+    private void initScanBudyService() {
+        UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
+        mConnectionSession = new UsbHostConnectSession(this, false);
+        mConnectionSession.setSessionListener(new SessionListener() {
+            @Override
+            public void onSessionReady(@NotNull IConnectSession iConnectSession) {
+                showMessage("USB Session started");
 
-    private void saveAndRestartService() {
-        //End current session
-        mConnectionSession.endSession();
-        //Start new session
+                mConnectionSession.setConnectListener(new CommunicateListener() {
+                    //设备断开
+                    //Bluetooth device disconnected
+                    @Override
+                    public void onDisconnected() {
+                        showMessage("Device has been disconnected");
+                    }
+
+                    //设备连接失败
+                    //Bluetooth device connect failed
+                    @Override
+                    public void onConnectFailure(String errorMessage) {
+                        showMessage(errorMessage);
+                    }
+
+                    //设备连接成功
+                    //Bluetooth device connect success
+                    @Override
+                    public void onConnected() {
+                        showMessage(R.string.scanner_connect_success);
+                    }
+
+                    //接收到扫描器数据
+                    //Scanner data received
+                    @Override
+                    public void onDataReceived(String data) {
+                        mTvData.append(data);
+                    }
+
+                    //命令返回数据
+                    //Bluetooth command callback
+                    @Override
+                    public void onCommandCallback(String name, String data) {
+
+                    }
+
+                    //电池数据接收
+                    //Battery data receive
+                    @Override
+                    public void onBatteryDataReceived(String voltage, String percentage) {
+
+                    }
+
+                    //扫描器命令超时
+                    //Scanner command timeout
+                    @Override
+                    public void onCommandNoResponse(String errorMessage) {
+
+                    }
+
+                    //数据接收错误
+                    //Data receive error
+                    @Override
+                    public void onRawDataReceiveError(String errorMessage, String source) {
+
+                    }
+
+                    //原始数据接收
+                    //Raw data receive
+                    @Override
+                    public void onRawDataReceived(byte data) {
+
+                    }
+                });
+                try
+                {
+                    mConnectionSession.connect();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                    showMessage(e.getMessage());
+                }
+            }
+
+            @Override
+            public void onSessionStartTimeOut(@NotNull IConnectSession iConnectSession) {
+                showMessage("USB Session start time out!");
+            }
+        });
         mConnectionSession.startSession();
-
     }
 
     private void showMessage(int messageResId) {
