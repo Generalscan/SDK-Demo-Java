@@ -303,3 +303,13 @@ BluetoothConnectSession mBluetoothConnectSession = new BluetoothConnectSession(t
 ```java
 mConnectionSession.connect();
 ```
+
+6) Connect the ScanBuddy and send the following scanner command to start a scan
+```java
+ mConnectionSession.sendData("{a}");
+```
+
+7) End the session when exit the current screen
+```java
+mConnectionSession.endSession();
+```

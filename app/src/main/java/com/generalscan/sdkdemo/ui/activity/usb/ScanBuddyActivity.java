@@ -52,7 +52,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
         super.onDestroy();
         try
         {
-            if (mConnectionSession.getFloatingScanButtonService() != null) {
+            if (mConnectionSession!= null) {
                 mConnectionSession.endSession();
             }
         }
