@@ -35,8 +35,30 @@
 
         <activity android:name="com.generalscan.sdkdemo.ui.activity.bluetooth.BluetoothMainActivity" />
         <activity android:name="com.generalscan.sdkdemo.ui.activity.bluetooth.BluetoothDeviceListActivity" />
-        <activity android:name="com.generalscan.sdkdemo.ui.activity.usb.UsbHostActivity"></activity>
-        <activity android:name="com.android.settings.deviceinfo.Status"></activity>
+        <activity android:name="com.generalscan.sdkdemo.ui.activity.usb.UsbHostActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name="com.generalscan.sdkdemo.ui.activity.usb.ScanBuddyActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/gs_accessory_filter"/>
+
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+
+        </activity>
         <service
             android:name="com.generalscan.scannersdk.core.session.bluetooth.service.BluetoothConnectService"
             android:enabled="true"

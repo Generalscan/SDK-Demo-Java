@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!--  附件类型判断 -->
+	<usb-accessory model="Generalscan Scanner" manufacturer="Generalscan" version="1.0"/>
+</resources>

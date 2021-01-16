@@ -38,10 +38,10 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportLibVersion"
     implementation "com.android.support:design:$supportLibVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.10'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21'
     implementation 'net.vidageek:mirror:1.6.1'
     api files('libs/fastjson-1.1.58.android.jar')
-    implementation(name:'generalscan-sdk-1.0.6', ext:'aar')
+    implementation(name:'generalscan-sdk-1.0.10', ext:'aar')
 }
 repositories {
     mavenCentral()

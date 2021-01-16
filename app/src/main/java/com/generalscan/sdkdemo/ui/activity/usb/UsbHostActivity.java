@@ -15,6 +15,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.generalscan.scannersdk.core.basic.interfaces.IConnectSession;
+import com.generalscan.scannersdk.core.basic.interfaces.SessionListener;
 import com.generalscan.sdkdemo.R;
 import com.generalscan.scannersdk.core.basic.interfaces.CommunicateListener;
 import com.generalscan.scannersdk.core.pref.UsbHostReferences;
@@ -25,6 +27,7 @@ import com.generalscan.sdkdemo.Utils.AsyncTaskCall;
 import com.generalscan.sdkdemo.Utils.AsyncTaskCallback;
 import com.generalscan.sdkdemo.Utils.CallResult;
 
+import org.jetbrains.annotations.NotNull;
 
 
 public class UsbHostActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
@@ -56,19 +59,111 @@ public class UsbHostActivity extends AppCompatActivity implements CompoundButton
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usb_host);
-        bindViews();
-        mLayTriggerButtonSettings.setVisibility(View.GONE);
-        mConnectionSession = new UsbHostConnectSession(this, true);
-        bindViews();
-        readSettings();
-        saveAndRestartService();
+        try {
+            bindViews();
+            mLayTriggerButtonSettings.setVisibility(View.GONE);
+            mConnectionSession = new UsbHostConnectSession(this, true);
+            mConnectionSession.setSessionListener(new SessionListener() {
+                @Override
+                public void onSessionReady(@NotNull IConnectSession iConnectSession) {
+                    if (mConnectionSession.getFloatingScanButtonService() != null) {
+                        mConnectionSession.getFloatingScanButtonService().onTriggerMethodChange();
+                    }
+                    mConnectionSession.connect();
+                    mConnectionSession.setConnectListener(new CommunicateListener() {
+                        //设备断开
+                        //Bluetooth device disconnected
+                        @Override
+                        public void onDisconnected() {
+                            showMessage("Device has been disconnected");
+                        }
+
+                        //设备连接失败
+                        //Bluetooth device connect failed
+                        @Override
+                        public void onConnectFailure(String errorMessage) {
+                            showMessage(errorMessage);
+                        }
+
+                        //设备连接成功
+                        //Bluetooth device connect success
+                        @Override
+                        public void onConnected() {
+                            showMessage(R.string.scanner_connect_success);
+                        }
+
+                        //接收到扫描器数据
+                        //Scanner data received
+                        @Override
+                        public void onDataReceived(String data) {
+                            mTvData.append(data);
+                        }
+
+                        //命令返回数据
+                        //Bluetooth command callback
+                        @Override
+                        public void onCommandCallback(String name, String data) {
+
+                        }
+
+                        //电池数据接收
+                        //Battery data receive
+                        @Override
+                        public void onBatteryDataReceived(String voltage, String percentage) {
+
+                        }
+
+                        //扫描器命令超时
+                        //Scanner command timeout
+                        @Override
+                        public void onCommandNoResponse(String errorMessage) {
+
+                        }
+
+                        //数据接收错误
+                        //Data receive error
+                        @Override
+                        public void onRawDataReceiveError(String errorMessage, String source) {
+
+                        }
+
+                        //原始数据接收
+                        //Raw data receive
+                        @Override
+                        public void onRawDataReceived(byte data) {
+
+                        }
+                    });
+                }
+
+                @Override
+                public void onSessionStartTimeOut(@NotNull IConnectSession iConnectSession) {
+
+                }
+            });
+            bindViews();
+            readSettings();
+            //saveAndRestartService();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            showMessage(ex.getMessage());
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mConnectionSession.getFloatingScanButtonService() != null) {
-            mConnectionSession.endSession();
+        try {
+            if (mConnectionSession.getFloatingScanButtonService() != null) {
+                mConnectionSession.endSession();
+            }
+        }
+        catch (Exception ex)
+        {
+            showMessage(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 
@@ -198,9 +293,8 @@ public class UsbHostActivity extends AppCompatActivity implements CompoundButton
         mConnectionSession.endSession();
         //Start new session
         mConnectionSession.startSession();
-        if (mConnectionSession.getFloatingScanButtonService() != null) {
-            mConnectionSession.getFloatingScanButtonService().onTriggerMethodChange();
-        }
+
+        /*
         final long startTime = System.currentTimeMillis();
         new AsyncTask2(new AsyncTaskCall() {
             @Override
@@ -235,71 +329,7 @@ public class UsbHostActivity extends AppCompatActivity implements CompoundButton
             @Override
             public void hasFinished(CallResult result) {
                 if (result.isSuccess()) {
-                    mConnectionSession.connect();
-                    mConnectionSession.setConnectListener(new CommunicateListener() {
-                        //设备断开
-                        //Bluetooth device disconnected
-                        @Override
-                        public void onDisconnected() {
-                            showMessage("Device has been disconnected");
-                        }
 
-                        //设备连接失败
-                        //Bluetooth device connect failed
-                        @Override
-                        public void onConnectFailure(String errorMessage) {
-                            showMessage(errorMessage);
-                        }
-
-                        //设备连接成功
-                        //Bluetooth device connect success
-                        @Override
-                        public void onConnected() {
-                            showMessage(R.string.scanner_connect_success);
-                        }
-
-                        //接收到扫描器数据
-                        //Scanner data received
-                        @Override
-                        public void onDataReceived(String data) {
-                            mTvData.append(data);
-                        }
-
-                        //命令返回数据
-                        //Bluetooth command callback
-                        @Override
-                        public void onCommandCallback(String name, String data) {
-
-                        }
-
-                        //电池数据接收
-                        //Battery data receive
-                        @Override
-                        public void onBatteryDataReceived(String voltage, String percentage) {
-
-                        }
-
-                        //扫描器命令超时
-                        //Scanner command timeout
-                        @Override
-                        public void onCommandNoResponse(String errorMessage) {
-
-                        }
-
-                        //数据接收错误
-                        //Data receive error
-                        @Override
-                        public void onRawDataReceiveError(String errorMessage, String source) {
-
-                        }
-
-                        //原始数据接收
-                        //Raw data receive
-                        @Override
-                        public void onRawDataReceived(byte data) {
-
-                        }
-                    });
                 } else {
                     Toast.makeText(getContext(), getText(R.string.usb_host_service_not_start), Toast.LENGTH_LONG).show();
                 }
@@ -307,7 +337,7 @@ public class UsbHostActivity extends AppCompatActivity implements CompoundButton
 
 
         }, null).execute();
-
+        */
     }
 
 

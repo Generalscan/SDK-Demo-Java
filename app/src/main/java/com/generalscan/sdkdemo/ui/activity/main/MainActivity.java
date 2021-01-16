@@ -13,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.generalscan.scannersdk.core.basic.SdkContext;
 import com.generalscan.sdkdemo.R;
 import com.generalscan.sdkdemo.ui.activity.bluetooth.BluetoothMainActivity;
+import com.generalscan.sdkdemo.ui.activity.usb.ScanBuddyActivity;
 import com.generalscan.sdkdemo.ui.activity.usb.UsbHostActivity;
 
 public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        SdkContext.INSTANCE.initSdk(this, null);
         //Request Permission
         Boolean requestPermission = shouldRequestPermissions(this, PERMISSIONS);
         if (requestPermission) {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         findViewById(R.id.button_usb_host).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, UsbHostActivity.class);
+                Intent intent = new Intent(MainActivity.this, ScanBuddyActivity.class);
                 startActivityForResult(intent, REQUEST_CONNECT_BLUETOOTH_DEVICE);
             }
         });
