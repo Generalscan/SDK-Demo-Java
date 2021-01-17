@@ -41,7 +41,7 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.21'
     implementation 'net.vidageek:mirror:1.6.1'
     api files('libs/fastjson-1.1.58.android.jar')
-    implementation(name:'generalscan-sdk-1.0.10', ext:'aar')
+    implementation(name:'generalscan-sdk-1.0.11', ext:'aar')
 }
 repositories {
     mavenCentral()

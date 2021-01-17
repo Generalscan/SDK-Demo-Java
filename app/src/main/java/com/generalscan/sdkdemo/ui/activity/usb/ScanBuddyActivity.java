@@ -1,11 +1,13 @@
 package com.generalscan.sdkdemo.ui.activity.usb;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.generalscan.scannersdk.core.basic.SdkContext;
 import com.generalscan.scannersdk.core.basic.interfaces.CommunicateListener;
 import com.generalscan.scannersdk.core.basic.interfaces.IConnectSession;
 import com.generalscan.scannersdk.core.basic.interfaces.SessionListener;
@@ -27,6 +29,8 @@ public class ScanBuddyActivity extends AppCompatActivity {
     private TextView mBtnScan;
     private TextView mBtnStartServcie;
     private TextView mBtnStopService;
+    private TextView mBtnConnect;
+    private TextView mBtnDisconnect;
     private TextView mTvData;
 
     //endregion
@@ -36,7 +40,9 @@ public class ScanBuddyActivity extends AppCompatActivity {
         try {
             setContentView(R.layout.activity_scan_buddy);
             bindViews();
-            initScanBudyService();
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+
+            initUsbConnection();
         }
         catch (Exception ex)
         {
@@ -46,6 +52,11 @@ public class ScanBuddyActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        restartUsbService();
+    }
 
     @Override
     protected void onDestroy() {
@@ -72,40 +83,83 @@ public class ScanBuddyActivity extends AppCompatActivity {
         mBtnStartServcie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConnectionSession.startSession();
+                try
+                {
+                    mConnectionSession.endSession();
+                    mConnectionSession.startSession();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                    showMessage(e.getMessage());
+                }
+
             }
         });
 
         mBtnStopService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConnectionSession.endSession();
+                try
+                {
+                    mConnectionSession.endSession();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                    showMessage(e.getMessage());
+                }
             }
         });
 
         mBtnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mConnectionSession.sendData("{a}");
+                try
+                {
+                    mTvData.requestFocus();
+                    mConnectionSession.sendData("{a}");
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                    showMessage(e.getMessage());
+                }
+
             }
         });
 
 
     }
-    private void initScanBudyService() {
+    private void restartUsbService() {
+        try {
+            mBtnScan.setVisibility(View.GONE);
+            if (mConnectionSession != null)
+                mConnectionSession.endSession();
+            mConnectionSession.startSession();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            showMessage(e.getMessage());
+        }
+    }
+
+    private void initUsbConnection() {
+        SdkContext.INSTANCE.initSdk(this, null);
         UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
         mConnectionSession = new UsbHostConnectSession(this, false);
         mConnectionSession.setSessionListener(new SessionListener() {
             @Override
             public void onSessionReady(@NotNull IConnectSession iConnectSession) {
-                showMessage("USB Session started");
-
+                //showMessage("USB Session started");
                 mConnectionSession.setConnectListener(new CommunicateListener() {
                     //设备断开
                     //Bluetooth device disconnected
                     @Override
                     public void onDisconnected() {
                         showMessage("Device has been disconnected");
+                        ScanBuddyActivity.this.finish();
                     }
 
                     //设备连接失败
@@ -164,12 +218,11 @@ public class ScanBuddyActivity extends AppCompatActivity {
 
                     }
                 });
-                try
-                {
+
+                try {
                     mConnectionSession.connect();
-                }
-                catch (Exception e)
-                {
+                    mBtnScan.setVisibility(View.VISIBLE);
+                } catch (Exception e) {
                     e.printStackTrace();
                     showMessage(e.getMessage());
                 }
@@ -180,7 +233,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
                 showMessage("USB Session start time out!");
             }
         });
-        mConnectionSession.startSession();
+
     }
 
     private void showMessage(int messageResId) {

@@ -12,7 +12,9 @@
         <TextView
             android:id="@+id/textview_data"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <requestFocus/>
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -30,14 +32,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/U_StartService" />
+                android:text="@string/U_StartService"
+                android:visibility="gone"/>
             <TextView
                 android:id="@+id/button_stop_service"
                 style="@style/flat_button_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/U_stopService" />
+                android:text="@string/U_stopService"
+                android:visibility="gone"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,6 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:text="@string/gs_start_scan" />
         </LinearLayout>
     </LinearLayout>
