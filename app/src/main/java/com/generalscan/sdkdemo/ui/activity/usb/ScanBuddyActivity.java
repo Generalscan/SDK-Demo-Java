@@ -3,11 +3,13 @@ package com.generalscan.sdkdemo.ui.activity.usb;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.generalscan.scannersdk.core.basic.SdkContext;
+import com.generalscan.scannersdk.core.basic.consts.SdkReceiveConfig;
 import com.generalscan.scannersdk.core.basic.interfaces.CommunicateListener;
 import com.generalscan.scannersdk.core.basic.interfaces.IConnectSession;
 import com.generalscan.scannersdk.core.basic.interfaces.SessionListener;
@@ -80,6 +82,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
         mBtnStartServcie = findViewById(R.id.button_start_service);
         mBtnStopService = findViewById(R.id.button_stop_service);
         mTvData = findViewById(R.id.textview_data);
+        mTvData.setMovementMethod(new ScrollingMovementMethod());
         mBtnStartServcie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,6 +150,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
 
     private void initUsbConnection() {
         SdkContext.INSTANCE.initSdk(this, null);
+        SdkReceiveConfig.INSTANCE.setCurrentCharsetCode(SdkReceiveConfig.CHARSET_UTF8);
         UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
         mConnectionSession = new UsbHostConnectSession(this, false);
         mConnectionSession.setSessionListener(new SessionListener() {
@@ -180,7 +184,13 @@ public class ScanBuddyActivity extends AppCompatActivity {
                     //Scanner data received
                     @Override
                     public void onDataReceived(String data) {
-                        mTvData.append(data);
+                        String txtViewData = mTvData.getText().toString();
+                        int count = 0;
+                        if(txtViewData.contains("\n"))
+                           count = txtViewData.split("\n").length + 1;
+                        else
+                           count = 1;
+                        mTvData.append(String.valueOf(count) + ":" + data);
                     }
 
                     //命令返回数据
