@@ -39,6 +39,18 @@
         android:background="@drawable/bg_flat_button_info"
         android:gravity="center_horizontal|center_vertical"
         android:padding="20dp"
-        android:text="@string/scan_buddy"
+        android:text="Scan Buddy (MANUAL)"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/button_usb_host_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_flat_button_info"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="20dp"
+        android:text="Scan Buddy (AUTO)"
         android:textSize="30sp" />
 </LinearLayout>

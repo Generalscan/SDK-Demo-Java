@@ -3,9 +3,9 @@
 buildscript {
     ext.supportLibVersion = '26.1.0'
 
-    ext.sdkTargetVersion = 26
-    ext.sdkCompileVersion = 26
-    ext.sdkMinimumVersion = 14
+    ext.sdkTargetVersion = 28
+    ext.sdkCompileVersion = 28
+    ext.sdkMinimumVersion = 16
     repositories {
         google()
         jcenter()

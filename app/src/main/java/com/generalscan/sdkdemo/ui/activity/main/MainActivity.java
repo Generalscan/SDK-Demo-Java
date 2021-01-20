@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.generalscan.scannersdk.core.basic.SdkContext;
+import com.generalscan.scannersdk.core.session.usbhost.basic.UsbHostConsts;
 import com.generalscan.sdkdemo.R;
 import com.generalscan.sdkdemo.ui.activity.bluetooth.BluetoothMainActivity;
 import com.generalscan.sdkdemo.ui.activity.usb.ScanBuddyActivity;
@@ -64,9 +65,17 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         findViewById(R.id.button_usb_host).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(MainActivity.this, ScanBuddyActivity.class);
-                //startActivityForResult(intent, REQUEST_CONNECT_BLUETOOTH_DEVICE);
-                Toast.makeText(MainActivity.this, "Please plug in the ScanBuddy device to the phone", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, ScanBuddyActivity.class);
+                startActivityForResult(intent, REQUEST_CONNECT_BLUETOOTH_DEVICE);
+                //Toast.makeText(MainActivity.this, "Please plug in the ScanBuddy device to the phone", Toast.LENGTH_LONG).show();
+            }
+        });
+        findViewById(R.id.button_usb_host_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, UsbHostActivity.class);
+                startActivityForResult(intent, REQUEST_CONNECT_BLUETOOTH_DEVICE);
+                //Toast.makeText(MainActivity.this, "Please plug in the ScanBuddy device to the phone", Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.generalscan.sdkdemo.ui.activity.usb;
 
+import android.app.PendingIntent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import com.generalscan.scannersdk.core.pref.UsbHostReferences;
 import com.generalscan.scannersdk.core.session.usbhost.basic.UsbHostConsts;
 import com.generalscan.scannersdk.core.session.usbhost.connect.UsbHostConnectSession;
 import com.generalscan.sdkdemo.R;
+import com.generalscan.sdkdemo.Utils.DeviceLogger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -82,6 +85,8 @@ public class ScanBuddyActivity extends AppCompatActivity {
         mBtnStartServcie = findViewById(R.id.button_start_service);
         mBtnStopService = findViewById(R.id.button_stop_service);
         mTvData = findViewById(R.id.textview_data);
+
+        //mTvData.setText("Please press the START SCAN button to trigger scan");
         mTvData.setMovementMethod(new ScrollingMovementMethod());
         mBtnStartServcie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,7 +154,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
     }
 
     private void initUsbConnection() {
-        SdkContext.INSTANCE.initSdk(this, null);
+        SdkContext.INSTANCE.initSdk(this, new DeviceLogger(this));
         SdkReceiveConfig.INSTANCE.setCurrentCharsetCode(SdkReceiveConfig.CHARSET_UTF8);
         UsbHostReferences.Companion.setTriggerMethod(UsbHostConsts.USB_HOST_TRIGGER_MANUAL);
         mConnectionSession = new UsbHostConnectSession(this, false);
@@ -190,7 +195,7 @@ public class ScanBuddyActivity extends AppCompatActivity {
                            count = txtViewData.split("\n").length + 1;
                         else
                            count = 1;
-                        mTvData.append(String.valueOf(count) + ":" + data);
+                        mTvData.append(String.valueOf(count) + ": " + data);
                     }
 
                     //命令返回数据
@@ -253,6 +258,4 @@ public class ScanBuddyActivity extends AppCompatActivity {
     private void showMessage(CharSequence message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-
-
 }

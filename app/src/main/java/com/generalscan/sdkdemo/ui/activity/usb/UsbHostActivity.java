@@ -15,6 +15,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.generalscan.scannersdk.core.basic.SdkContext;
 import com.generalscan.scannersdk.core.basic.interfaces.IConnectSession;
 import com.generalscan.scannersdk.core.basic.interfaces.SessionListener;
 import com.generalscan.sdkdemo.R;
@@ -26,6 +27,7 @@ import com.generalscan.sdkdemo.Utils.AsyncTask2;
 import com.generalscan.sdkdemo.Utils.AsyncTaskCall;
 import com.generalscan.sdkdemo.Utils.AsyncTaskCallback;
 import com.generalscan.sdkdemo.Utils.CallResult;
+import com.generalscan.sdkdemo.Utils.DeviceLogger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -62,6 +64,7 @@ public class UsbHostActivity extends AppCompatActivity implements CompoundButton
         try {
             bindViews();
             mLayTriggerButtonSettings.setVisibility(View.GONE);
+            SdkContext.INSTANCE.initSdk(this, new DeviceLogger(this));
             mConnectionSession = new UsbHostConnectSession(this, true);
             mConnectionSession.setSessionListener(new SessionListener() {
                 @Override
@@ -399,7 +402,9 @@ public class UsbHostActivity extends AppCompatActivity implements CompoundButton
             UsbHostReferences.Companion.setVibrateTime(50);
         else
             UsbHostReferences.Companion.setVibrateTime(Long.valueOf(mTxtVibrateTime.getText().toString()));
-
+        if (mConnectionSession.getFloatingScanButtonService() != null) {
+            mConnectionSession.getFloatingScanButtonService().onTriggerMethodChange();
+        }
     }
 
     private void showMessage(int messageResId) {

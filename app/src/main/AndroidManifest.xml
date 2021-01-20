@@ -8,13 +8,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- Permissions for USB Host (Scan Buddy) -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Permissions for USB Host (Scan Buddy) -->
     <uses-feature
         android:name="android.hardware.usb.host"
-        android:required="true" />
-    <!-- Show Alert Dialog in Service -->
+        android:required="true" /> <!-- Show Alert Dialog in Service -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
@@ -25,26 +22,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.generalscan.sdkdemo.ui.activity.main.MainActivity">
+        <service
+            android:name=".services.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".ui.activity.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.generalscan.sdkdemo.ui.activity.bluetooth.BluetoothMainActivity" />
-        <activity android:name="com.generalscan.sdkdemo.ui.activity.bluetooth.BluetoothDeviceListActivity" />
-        <activity android:name="com.generalscan.sdkdemo.ui.activity.usb.UsbHostActivity"
+        <activity android:name=".ui.activity.bluetooth.BluetoothMainActivity" />
+        <activity android:name=".ui.activity.bluetooth.BluetoothDeviceListActivity" />
+        <activity
+            android:name=".ui.activity.usb.UsbHostActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            ></activity>
-        <activity android:name="com.generalscan.sdkdemo.ui.activity.usb.ScanBuddyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.usb.ScanBuddyActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
             android:launchMode="singleInstance"
-            >
+            android:screenOrientation="portrait">
 
+            <!--
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
@@ -52,8 +54,9 @@
             <meta-data
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
-
+            -->
         </activity>
+
         <service
             android:name="com.generalscan.scannersdk.core.session.bluetooth.service.BluetoothConnectService"
             android:enabled="true"
@@ -66,8 +69,6 @@
             android:name="com.generalscan.scannersdk.core.session.usbhost.service.FloatingScanButtonService"
             android:enabled="true"
             android:exported="true" />
-
-
     </application>
 
 </manifest>

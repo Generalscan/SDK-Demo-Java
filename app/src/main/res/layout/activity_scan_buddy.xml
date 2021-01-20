@@ -13,6 +13,8 @@
             android:id="@+id/textview_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray60"
+            android:textSize="20sp"
             android:gravity="bottom">
             <requestFocus/>
         </TextView>
@@ -53,7 +55,7 @@
 
             <TextView
                 android:id="@+id/button_scan"
-                style="@style/flat_button_info"
+                style="@style/flat_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
